@@ -1,0 +1,42 @@
+//Create a Class to Reflect On (Sample.java)
+
+public class Sample {
+    public void greet(String name) {
+        System.out.println("Hello, " + name);
+    }
+
+    public int add(int a, int b) {
+        return a + b;
+    }
+}
+
+// Reflection Code (ReflectDemo.java)
+
+import java.lang.reflect.*;
+
+public class ReflectDemo {
+    public static void main(String[] args) throws Exception {
+        Class<?> clazz = Class.forName("Sample");
+
+        Method[] methods = clazz.getDeclaredMethods();
+        System.out.println("Methods in Sample class:");
+        for (Method method : methods) {
+            System.out.print(method.getName() + "(");
+            Class<?>[] params = method.getParameterTypes();
+            for (int i = 0; i < params.length; i++) {
+                System.out.print(params[i].getSimpleName());
+                if (i < params.length - 1) System.out.print(", ");
+            }
+            System.out.println(")");
+        }
+
+        Object obj = clazz.getDeclaredConstructor().newInstance();
+
+        Method greetMethod = clazz.getDeclaredMethod("greet", String.class);
+        greetMethod.invoke(obj, "Java");
+
+        Method addMethod = clazz.getDeclaredMethod("add", int.class, int.class);
+        Object result = addMethod.invoke(obj, 5, 7);
+        System.out.println("Result of add(5, 7): " + result);
+    }
+}

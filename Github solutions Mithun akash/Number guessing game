@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class NumberGuessingGame {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        Random r = new Random();
+        int target = r.nextInt(100) + 1;
+        int guess;
+
+        do {
+            System.out.print("Enter your guess (1-100): ");
+            guess = s.nextInt();
+            if (guess < target)
+                System.out.println("Too low");
+            else if (guess > target)
+                System.out.println("Too high");
+            else
+                System.out.println("Correct! You guessed it.");
+        } while (guess != target);
+    }
+}

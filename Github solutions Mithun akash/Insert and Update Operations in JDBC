@@ -1,0 +1,32 @@
+import java.sql.*;
+
+public class StudentDAO {
+    private Connection conn;
+
+    public StudentDAO(String dbUrl) throws SQLException {
+        conn = DriverManager.getConnection(dbUrl);
+    }
+
+    public void insertStudent(int id, String name, int grade) throws SQLException {
+        String sql = "INSERT INTO students (id, name, grade) VALUES (?, ?, ?)";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, id);
+        stmt.setString(2, name);
+        stmt.setInt(3, grade);
+        stmt.executeUpdate();
+        stmt.close();
+    }
+
+    public void updateStudentGrade(int id, int newGrade) throws SQLException {
+        String sql = "UPDATE students SET grade = ? WHERE id = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, newGrade);
+        stmt.setInt(2, id);
+        stmt.executeUpdate();
+        stmt.close();
+    }
+
+    public void close() throws SQLException {
+        conn.close();
+    }
+}
