@@ -1,0 +1,68 @@
+//index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event List</title>
+  <style>
+    .card { border: 1px solid #ccc; padding: 10px; margin: 10px; }
+    .card button { margin-right: 5px; }
+  </style>
+</head>
+<body>
+
+  <h2>Community Events</h2>
+  <div id="eventContainer"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>
+
+
+//main.js
+
+const events = [
+  { name: "Music Night", seats: 5 },
+  { name: "Art Expo", seats: 0 },
+  { name: "Sports Day", seats: 2 }
+];
+
+const container = document.querySelector("#eventContainer");
+
+function renderEvents() {
+  container.innerHTML = ""; // Clear existing cards
+
+  events.forEach((event, index) => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+      <h3>${event.name}</h3>
+      <p>Seats Left: ${event.seats}</p>
+    `;
+
+    const registerBtn = document.createElement("button");
+    registerBtn.textContent = "Register";
+    registerBtn.onclick = () => {
+      if (event.seats > 0) {
+        event.seats--;
+        renderEvents();
+      } else {
+        alert("No seats left!");
+      }
+    };
+
+    const cancelBtn = document.createElement("button");
+    cancelBtn.textContent = "Cancel";
+    cancelBtn.onclick = () => {
+      event.seats++;
+      renderEvents();
+    };
+
+    card.appendChild(registerBtn);
+    card.appendChild(cancelBtn);
+    container.appendChild(card);
+  });
+}
+
+renderEvents();

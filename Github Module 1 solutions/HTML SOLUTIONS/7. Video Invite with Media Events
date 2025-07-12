@@ -1,0 +1,40 @@
+//index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Promo</title>
+  <style>
+    #status { color: green; font-weight: bold; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <h2>You're Invited!</h2>
+
+  <video width="400" controls oncanplay="showReadyMessage()">
+    <source src="promo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div id="status"></div>
+
+  <form>
+    <input type="text" placeholder="Your Name" id="name">
+  </form>
+
+  <script>
+    function showReadyMessage() {
+      document.getElementById("status").textContent = "🎬 Video ready to play";
+    }
+
+    window.onbeforeunload = function () {
+      const name = document.getElementById("name").value;
+      if (name !== "") {
+        return "You have unsaved changes. Are you sure you want to leave?";
+      }
+    };
+  </script>
+
+</body>
+</html>

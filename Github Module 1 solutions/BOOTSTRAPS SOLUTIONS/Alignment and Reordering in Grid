@@ -1,0 +1,19 @@
+//Center Content Horizontally and Vertically
+
+<div class="container" style="height: 200px;">
+  <div class="row justify-content-center align-items-center h-100">
+    <div class="col-6 bg-info text-white text-center p-3">
+      Centered Content
+    </div>
+  </div>
+</div>
+
+//Reorder Columns on Medium Screens
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6 order-md-2 bg-warning p-3">Column 1 (Second on md+)</div>
+    <div class="col-md-6 order-md-1 bg-success text-white p-3">Column 2 (First on md+)</div>
+  </div>
+</div>
+

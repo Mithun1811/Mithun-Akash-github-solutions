@@ -1,0 +1,42 @@
+//index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome Page</title>
+  <style>
+    /* Welcome banner styling using ID */
+    #welcomeBanner {
+      background-color: #007BFF;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Highlight class */
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Welcome banner -->
+  <div id="welcomeBanner">
+    <h1>Welcome, User!</h1>
+    <p>Glad to have you back.</p>
+  </div>
+
+  <!-- Special offer with inline styling -->
+  <p>Don't miss our 
+    <span style="color: red; font-weight: bold;">limited-time offer</span> 
+    on event passes!
+  </p>
+
+  <!-- Highlighted text using class -->
+  <p class="highlight">This weekend: Free entry for members!</p>
+
+</body>
+</html>

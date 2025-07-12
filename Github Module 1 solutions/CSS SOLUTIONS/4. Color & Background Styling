@@ -1,0 +1,24 @@
+// styles.css
+
+/* Body background with image and fallback color */
+body {
+  background-color: #e0f7fa; /* fallback */
+  background-image: url('city-background.jpg');
+  background-size: cover;
+  background-position: center;
+  color: rgba(0, 0, 0, 0.8);
+  font-family: sans-serif;
+}
+
+/* Main heading with gradient background */
+section.header {
+  background: linear-gradient(to right, #004d40, #26a69a);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Subheading with HEX color */
+h2 {
+  color: #00695c;
+}

@@ -1,0 +1,23 @@
+// Using a Constructor Function + Prototype
+
+function Event(name, date, seats) {
+  this.name = name;
+  this.date = date;
+  this.seats = seats;
+}
+
+// Add method using prototype
+Event.prototype.checkAvailability = function () {
+  return this.seats > 0 ? "Available" : "Sold Out";
+};
+
+// Create event instance
+const event1 = new Event("Music Night", "2025-08-10", 20);
+
+// Log availability
+console.log(`${event1.name} → ${event1.checkAvailability()}`);
+
+// List all keys and values
+Object.entries(event1).forEach(([key, value]) => {
+  console.log(`${key}: ${value}`);
+});

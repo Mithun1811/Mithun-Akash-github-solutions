@@ -1,0 +1,84 @@
+//index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Debug Test Page</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header id="mainHeader">
+    <h1>Community Portal</h1>
+  </header>
+
+  <nav class="nav-menu">
+    <a href="#">Home</a>
+    <a href="#">Events</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section class="content">
+    <img src="https://via.placeholder.com/600x300" class="responsive-img" alt="Community Event">
+    <p>This is a sample paragraph to test responsive layout and font styling.</p>
+  </section>
+
+</body>
+</html>
+
+
+//styles.css
+
+/* Header */
+#mainHeader {
+  background-color: #004d40;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Navigation */
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: #00796b;
+  padding: 10px;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Content Section */
+.content {
+  padding: 20px;
+  text-align: center;
+}
+
+.responsive-img {
+  width: 70%;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .responsive-img {
+    width: 95%;
+  }
+
+  .content p {
+    font-size: 14px;
+  }
+}

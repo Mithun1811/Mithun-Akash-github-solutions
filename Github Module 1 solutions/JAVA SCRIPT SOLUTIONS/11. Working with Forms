@@ -1,0 +1,70 @@
+//index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Registration</title>
+  <style>
+    .error { color: red; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+
+  <h2>Register for an Event</h2>
+
+  <form id="registrationForm">
+    <input type="text" name="name" placeholder="Your Name" /><br />
+    <span class="error" id="nameError"></span><br />
+
+    <input type="email" name="email" placeholder="Your Email" /><br />
+    <span class="error" id="emailError"></span><br />
+
+    <select name="event">
+      <option value="">-- Select Event --</option>
+      <option value="Music Night">Music Night</option>
+      <option value="Art Expo">Art Expo</option>
+    </select><br />
+    <span class="error" id="eventError"></span><br />
+
+    <button type="submit">Register</button>
+  </form>
+
+  <script src="main.js"></script>
+</body>
+</html>
+
+
+//main.js
+
+document.getElementById("registrationForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const { name, email, event } = e.target.elements;
+  let isValid = true;
+
+  // Clear previous errors
+  document.querySelectorAll(".error").forEach(el => el.textContent = "");
+
+  // Validate Name
+  if (!name.value.trim()) {
+    document.getElementById("nameError").textContent = "Name is required.";
+    isValid = false;
+  }
+
+  // Validate Email
+  if (!email.value.includes("@")) {
+    document.getElementById("emailError").textContent = "Valid email required.";
+    isValid = false;
+  }
+
+  // Validate Event Selection
+  if (!event.value) {
+    document.getElementById("eventError").textContent = "Please select an event.";
+    isValid = false;
+  }
+
+  if (isValid) {
+    alert(`✅ Registered: ${name.value} for ${event.value}`);
+    e.target.reset();
+  }
+});

@@ -1,0 +1,22 @@
+// main.js
+
+// Sample events array
+const events = [
+  { name: "Music Night", category: "music", seats: 20 },
+  { name: "Art Expo", category: "art", seats: 10 },
+  { name: "Tech Talk", category: "tech", seats: 0 }
+];
+
+// ✅ Default parameters + destructuring
+function showEvent({ name, category, seats = 0 }) {
+  console.log(`📢 ${name} [${category}] - Seats: ${seats}`);
+}
+
+// ✅ Spread operator to clone before filtering
+const availableEvents = [...events].filter(e => e.seats > 0);
+
+// ✅ Using let/const properly
+for (let i = 0; i < availableEvents.length; i++) {
+  const event = availableEvents[i];
+  showEvent(event);
+}

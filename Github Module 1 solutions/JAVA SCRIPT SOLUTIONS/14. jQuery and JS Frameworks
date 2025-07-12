@@ -1,0 +1,35 @@
+//index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .card { display: none; border: 1px solid #ccc; padding: 10px; margin: 10px; }
+  </style>
+</head>
+<body>
+
+  <button id="registerBtn">Show Event</button>
+
+  <div class="card" id="eventCard">
+    <h3>🎉 Music Night</h3>
+    <p>Join us this weekend!</p>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
+
+
+//main.js
+
+$(document).ready(function () {
+  $('#registerBtn').click(function () {
+    $('#eventCard').fadeIn(500); // Show with fade
+    setTimeout(() => {
+      $('#eventCard').fadeOut(500); // Auto-hide after 3s
+    }, 3000);
+  });
+});

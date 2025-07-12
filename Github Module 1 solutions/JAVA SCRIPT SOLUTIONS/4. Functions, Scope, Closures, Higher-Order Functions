@@ -1,0 +1,34 @@
+//main.js
+
+// Event storage
+let events = [];
+
+// Add new event
+function addEvent(name, category, seats) {
+  events.push({ name, category, seats });
+}
+
+// Register a user and reduce seat count
+function registerUser(eventName) {
+  const event = events.find(e => e.name === eventName);
+  if (event && event.seats > 0) {
+    event.seats--;
+    console.log(`✅ Registered for ${event.name}. Seats left: ${event.seats}`);
+  } else {
+    console.warn(`❌ Cannot register for ${eventName}`);
+  }
+}
+
+// Filter events by category using a callback
+function filterEventsByCategory(callback) {
+  return events.filter(callback);
+}
+
+// Closure to track registrations per category
+function createCategoryTracker(category) {
+  let count = 0;
+  return function () {
+    count++;
+    console.log(`📊 ${count} registration(s) for ${category}`);
+  };
+}

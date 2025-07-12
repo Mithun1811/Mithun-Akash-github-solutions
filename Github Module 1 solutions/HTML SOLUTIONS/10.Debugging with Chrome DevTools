@@ -1,0 +1,31 @@
+//index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DevTools Debugging</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 100px;
+      background-color: lightblue;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box" onclick="changeColor()">Click Me</div>
+
+  <script>
+    console.log("Page loaded");
+
+    function changeColor() {
+      const box = document.querySelector('.box');
+      box.style.backgroundColor = "orange";
+      let message = "Color changed"; // Set breakpoint here
+      console.log(message);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+//Set Up Bootstrap with Sass Using npm
+
+//Initialize npm project
+
+npm init -y
+
+//Install Bootstrap and Sass
+
+npm install bootstrap sass
+
+//Create folder structure
+
+your-project/
+│
+├── scss/
+│   └── custom.scss
+├── dist/
+│   └── (compiled CSS will go here)
+├── index.html
+└── package.json
+
+//In scss/custom.scss, import only what you need:
+
+// Override variables before importing Bootstrap
+$primary: #6f42c1;
+$border-radius: 1rem;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+//Customize _variables.scss and Recompile
+
+//Compile SCSS to CSS using Sass
+
+npx sass scss/custom.scss dist/bootstrap-custom.css
+
+//Link the compiled CSS in your HTML
+
+<link rel="stylesheet" href="dist/bootstrap-custom.css">
+

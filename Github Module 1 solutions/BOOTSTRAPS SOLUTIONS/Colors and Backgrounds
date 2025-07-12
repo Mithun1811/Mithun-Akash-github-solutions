@@ -1,0 +1,17 @@
+//Dashboard with Contextual Backgrounds
+
+<div class="container mt-4">
+  <div class="row text-white">
+    <div class="col-md-3 p-3 bg-primary">Dashboard</div>
+    <div class="col-md-3 p-3 bg-success">Sales</div>
+    <div class="col-md-3 p-3 bg-warning text-dark">Notifications</div>
+    <div class="col-md-3 p-3 bg-danger">Alerts</div>
+  </div>
+</div>
+
+//Gradient Background with Dark Theme
+
+<div class="container-fluid bg-dark bg-gradient text-white text-center p-5 mt-4">
+  <h2>Welcome to the Dark Section</h2>
+  <p>This section uses <code>bg-dark</code> with <code>bg-gradient</code> and white text.</p>
+</div>

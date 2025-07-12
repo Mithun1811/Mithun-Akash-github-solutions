@@ -1,0 +1,41 @@
+//index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Body styles */
+    body { background-color: #f0f0f0; }
+
+    /* Header styles */
+    h1 { font-size: 2rem; }
+  </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1 style="color: red;">Inline Red Heading</h1>
+  <h2>Styled via External CSS</h2>
+  <p>Demonstrating CSS methods.</p>
+
+  <footer class="footer-text">Footer styled externally</footer>
+
+</body>
+</html>
+
+//styles.css
+
+/* Header styles */
+h2 { color: navy; }
+
+/* Paragraph styles */
+p { color: #333; }
+
+/* Footer styles */
+.footer-text {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+

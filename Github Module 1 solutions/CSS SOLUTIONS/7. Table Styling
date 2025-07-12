@@ -1,0 +1,24 @@
+//styles.css
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+/* Table borders and padding */
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* Header background */
+th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+/* Zebra striping */
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}

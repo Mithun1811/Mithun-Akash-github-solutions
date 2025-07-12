@@ -1,0 +1,26 @@
+//Show/Hide Based on Screen Size
+
+<div class="container mt-4">
+  <div class="d-none d-md-block bg-info text-white p-3 mb-2">
+    Visible on md and larger (≥768px)
+  </div>
+
+  <div class="d-none d-lg-flex bg-success text-white p-3">
+    Flex layout visible on lg and larger (≥992px)
+  </div>
+</div>
+
+
+//Responsive Sidebar (Tablet and Up)
+
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="col-md-3 d-none d-md-block bg-dark text-white p-3">
+      Sidebar (visible on md and larger)
+    </div>
+    <div class="col-md-9 col-12 p-3">
+      Main Content Area
+    </div>
+  </div>
+</div>
+

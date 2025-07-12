@@ -1,0 +1,25 @@
+//Profile Card
+
+<div class="container mt-4" style="max-width: 300px;">
+  <div class="card">
+    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Profile Image">
+    <div class="card-body">
+      <h5 class="card-title">John Doe</h5>
+      <p class="card-text">Web Developer at XYZ Company</p>
+      <a href="#" class="btn btn-primary">View Profile</a>
+    </div>
+  </div>
+</div>
+
+//Media Object Layout
+
+<div class="container mt-4">
+  <div class="d-flex">
+    <img src="https://via.placeholder.com/100" class="me-3 rounded" alt="Media" style="width: 100px;">
+    <div>
+      <h5>Media Heading</h5>
+      <p>This is a simple media object layout using flex utilities in Bootstrap 5.</p>
+    </div>
+  </div>
+</div>
+

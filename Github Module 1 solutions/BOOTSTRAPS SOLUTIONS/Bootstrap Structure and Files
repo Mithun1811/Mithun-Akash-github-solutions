@@ -1,0 +1,40 @@
+//Bootstrap Directory Structure
+
+bootstrap/
+├── css/
+│   └── bootstrap.min.css          → Minified CSS styles for layout, grid, components
+├── js/
+│   └── bootstrap.bundle.min.js    → Includes Bootstrap JS + Popper for components like modals/tooltips
+├── icons/
+│   └── bootstrap-icons.*          → Optional SVG icon set (if included separately)
+
+//Include Bootstrap's JS Plugins
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bootstrap JS Example</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Open Modal</button>
+
+    <div class="modal fade" id="myModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal Title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">This is a Bootstrap modal.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

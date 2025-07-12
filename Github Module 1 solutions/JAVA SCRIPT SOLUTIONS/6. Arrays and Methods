@@ -1,0 +1,21 @@
+//main.js
+
+// Initial event array
+let events = [
+  { name: "Music Night", type: "music" },
+  { name: "Art Expo", type: "art" }
+];
+
+// Add new events
+events.push({ name: "Baking Workshop", type: "workshop" });
+events.push({ name: "Jazz Night", type: "music" });
+
+// Filter only music events
+const musicEvents = events.filter(e => e.type === "music");
+console.log("🎵 Music Events:", musicEvents);
+
+// Format display cards
+const displayCards = events.map(e => `🎫 ${e.type.toUpperCase()} - ${e.name}`);
+console.log("🗂️ Event Cards:", displayCards);
+
+

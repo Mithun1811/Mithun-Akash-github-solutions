@@ -1,0 +1,68 @@
+//index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Async Events</title>
+  <style>
+    #spinner { display: none; font-style: italic; color: gray; }
+    .card { border: 1px solid #ccc; padding: 10px; margin: 10px; }
+  </style>
+</head>
+<body>
+
+  <h2>Upcoming Events</h2>
+  <div id="spinner">⏳ Loading events...</div>
+  <div id="eventContainer"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>
+
+
+//main.js — Using async/await
+
+const container = document.getElementById("eventContainer");
+const spinner = document.getElementById("spinner");
+
+// Simulated API (replace with real API URL if needed)
+const API_URL = "https://mocki.io/v1/02b275dc-28b0-4bc9-bdb2-3e9e54c016b8"; // replace if desired
+
+async function fetchEvents() {
+  spinner.style.display = "block";
+  try {
+    const response = await fetch(API_URL);
+    const data = await response.json();
+    displayEvents(data.events);
+  } catch (error) {
+    container.innerHTML = `<p style="color:red;">Failed to load events.</p>`;
+    console.error(error);
+  } finally {
+    spinner.style.display = "none";
+  }
+}
+
+function displayEvents(events) {
+  container.innerHTML = "";
+  events.forEach(event => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <h3>${event.name}</h3>
+      <p>Date: ${event.date}</p>
+      <p>Seats: ${event.seats}</p>
+    `;
+    container.appendChild(card);
+  });
+}
+
+fetchEvents();
+
+
+//If Using .then() and .catch()
+
+fetch(API_URL)
+  .then(res => res.json())
+  .then(data => displayEvents(data.events))
+  .catch(err => console.error("Error fetching events", err))
+  .finally(() => spinner.style.display = "none");

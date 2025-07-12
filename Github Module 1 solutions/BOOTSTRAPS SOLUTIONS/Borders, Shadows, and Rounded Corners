@@ -1,0 +1,18 @@
+//Image with Borders and Rounded Corners
+
+<div class="container mt-4 text-center">
+  <img src="https://via.placeholder.com/150" 
+       class="border border-primary border-3 rounded-circle" 
+       alt="Profile Image">
+</div>
+
+//Card with Shadow and Rounded Pill Corners
+
+<div class="container mt-4" style="max-width: 400px;">
+  <div class="card shadow-lg rounded-pill text-center p-4">
+    <h5 class="card-title mb-2">Special Offer</h5>
+    <p class="card-text">Get 50% off on all items today only!</p>
+    <button class="btn btn-success">Claim Now</button>
+  </div>
+</div>
+

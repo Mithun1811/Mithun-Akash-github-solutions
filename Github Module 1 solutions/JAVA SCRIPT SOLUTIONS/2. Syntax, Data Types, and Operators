@@ -1,0 +1,12 @@
+//main.js
+
+const eventName = "Music Night";
+const eventDate = "2025-08-15";
+let availableSeats = 50;
+
+// Template literal to show event info
+console.log(`📅 ${eventName} is on ${eventDate}. Seats left: ${availableSeats}`);
+
+// Simulate registration
+availableSeats--;
+console.log(`✅ Registered! Updated seats: ${availableSeats}`);

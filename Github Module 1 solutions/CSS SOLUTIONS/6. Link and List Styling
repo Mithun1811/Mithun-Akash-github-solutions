@@ -1,0 +1,43 @@
+//styles.css
+
+/* Link styling */
+a:link {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #4b0082;
+}
+
+a:hover {
+  color: #ff5722;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #d32f2f;
+}
+
+/* Custom bullet list */
+ul.custom-list {
+  list-style-type: square;
+  list-style-position: inside;
+  padding-left: 20px;
+}
+
+ul.custom-list li {
+  margin-bottom: 10px;
+}
+
+/* Navigation menu (no bullets) */
+ul.nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.nav-menu li {
+  display: inline-block;
+  margin-right: 15px;
+}

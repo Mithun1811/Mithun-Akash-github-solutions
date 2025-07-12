@@ -1,0 +1,42 @@
+//Margin and Padding Utilities
+
+<div class="container mt-4">
+  <div class="bg-light m-3 p-2">
+    <p class="mb-0">Box with margin (m-3) and padding (p-2)</p>
+  </div>
+
+  <div class="bg-secondary text-white mt-4 py-5 px-3">
+    <p class="mb-0">Box with top margin (mt-4), vertical padding (py-5), and horizontal padding (px-3)</p>
+  </div>
+</div>
+
+//Pricing Section with Spacing
+
+<div class="container my-5">
+  <div class="row text-center">
+    <div class="col-md-4 mb-4">
+      <div class="border p-4 rounded">
+        <h4 class="mb-3">Basic</h4>
+        <p class="h1">$9</p>
+        <p class="text-muted mb-4">Per month</p>
+        <button class="btn btn-outline-primary">Choose Plan</button>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="border p-4 rounded bg-light">
+        <h4 class="mb-3">Pro</h4>
+        <p class="h1">$29</p>
+        <p class="text-muted mb-4">Per month</p>
+        <button class="btn btn-primary">Choose Plan</button>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="border p-4 rounded">
+        <h4 class="mb-3">Enterprise</h4>
+        <p class="h1">$99</p>
+        <p class="text-muted mb-4">Per month</p>
+        <button class="btn btn-outline-dark">Choose Plan</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+//index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Save Preferences</title>
+</head>
+<body>
+
+  <h2>Select Your Preferred Event</h2>
+
+  <select id="eventType" onchange="savePreference()">
+    <option value="">-- Choose an event --</option>
+    <option value="music">Music Night</option>
+    <option value="art">Art Fair</option>
+    <option value="sports">Sports Day</option>
+  </select>
+
+  <button onclick="clearPreferences()">Clear Preferences</button>
+
+  <script>
+    // Load preference on page load
+    window.onload = function () {
+      const saved = localStorage.getItem("preferredEvent");
+      if (saved) {
+        document.getElementById("eventType").value = saved;
+      }
+    };
+
+    // Save preference on change
+    function savePreference() {
+      const value = document.getElementById("eventType").value;
+      localStorage.setItem("preferredEvent", value);
+      sessionStorage.setItem("tempEvent", value); // optional for demo
+    }
+
+    // Clear all preferences
+    function clearPreferences() {
+      localStorage.clear();
+      sessionStorage.clear();
+      document.getElementById("eventType").value = "";
+      alert("Preferences cleared!");
+    }
+  </script>
+
+</body>
+</html>

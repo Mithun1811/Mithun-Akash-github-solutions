@@ -1,0 +1,79 @@
+//index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Handling</title>
+  <style>
+    .card { border: 1px solid #ccc; padding: 10px; margin: 10px; }
+  </style>
+</head>
+<body>
+
+  <h2>Community Events</h2>
+
+  <input type="text" id="search" placeholder="Search by name..." />
+  <select id="categoryFilter">
+    <option value="">All</option>
+    <option value="music">Music</option>
+    <option value="art">Art</option>
+  </select>
+
+  <div id="eventContainer"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>
+
+
+//main.js
+
+const events = [
+  { name: "Music Night", category: "music", seats: 5 },
+  { name: "Art Expo", category: "art", seats: 3 },
+  { name: "Jazz Night", category: "music", seats: 0 }
+];
+
+const container = document.querySelector("#eventContainer");
+const filterSelect = document.querySelector("#categoryFilter");
+const searchInput = document.querySelector("#search");
+
+function render(filtered = events) {
+  container.innerHTML = "";
+  filtered.forEach((event, index) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <h3>${event.name}</h3>
+      <p>Category: ${event.category}</p>
+      <p>Seats: ${event.seats}</p>
+      <button onclick="register(${index})">Register</button>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function register(index) {
+  if (events[index].seats > 0) {
+    events[index].seats--;
+    filterAndRender(); // re-render with current filter
+  } else {
+    alert("No seats available!");
+  }
+}
+
+function filterAndRender() {
+  const category = filterSelect.value;
+  const search = searchInput.value.toLowerCase();
+  const filtered = events.filter(e =>
+    (!category || e.category === category) &&
+    e.name.toLowerCase().includes(search)
+  );
+  render(filtered);
+}
+
+// Events
+filterSelect.onchange = filterAndRender;
+searchInput.onkeydown = filterAndRender;
+
+render();

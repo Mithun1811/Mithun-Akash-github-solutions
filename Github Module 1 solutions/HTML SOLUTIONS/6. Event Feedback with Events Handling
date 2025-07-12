@@ -1,0 +1,57 @@
+//index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Feedback</title>
+  <style>
+    #eventImg { width: 300px; cursor: pointer; }
+    .enlarged { width: 500px; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+
+  <form>
+    <input type="text" id="phone" placeholder="Phone" onblur="validatePhone()">
+    <div id="phoneError" class="error"></div>
+
+    <select onchange="showFee()" id="eventSelect">
+      <option value="">Select</option>
+      <option value="50">Music - ₹50</option>
+      <option value="0">Clean-up - Free</option>
+    </select>
+    <div id="feeMsg"></div>
+
+    <textarea id="feedback" onkeyup="countChars()" placeholder="Feedback"></textarea>
+    <div id="charCount">Characters: 0</div>
+
+    <img src="https://via.placeholder.com/300x200" id="eventImg" ondblclick="toggleImageSize()">
+
+    <button type="button" onclick="showMsg()">Submit</button>
+    <div id="confirmMsg"></div>
+  </form>
+
+  <script>
+    function validatePhone() {
+      let p = document.getElementById('phone').value;
+      document.getElementById('phoneError').textContent = /^\d{10}$/.test(p) ? "" : "Invalid number";
+    }
+    function showFee() {
+      let fee = document.getElementById('eventSelect').value;
+      document.getElementById('feeMsg').textContent = fee ? `Fee: ₹${fee}` : "";
+    }
+    function countChars() {
+      let len = document.getElementById('feedback').value.length;
+      document.getElementById('charCount').textContent = `Characters: ${len}`;
+    }
+    function toggleImageSize() {
+      document.getElementById('eventImg').classList.toggle('enlarged');
+    }
+    function showMsg() {
+      document.getElementById('confirmMsg').textContent = "Feedback submitted!";
+    }
+  </script>
+
+</body>
+</html>

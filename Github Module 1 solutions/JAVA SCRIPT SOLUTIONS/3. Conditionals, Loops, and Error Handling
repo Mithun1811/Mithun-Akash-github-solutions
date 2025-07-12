@@ -1,0 +1,33 @@
+//main.js
+
+const today = new Date("2025-07-12");
+
+const events = [
+  { name: "Music Night", date: "2025-08-01", seats: 10 },
+  { name: "Art Fair", date: "2025-06-01", seats: 5 },   // Past
+  { name: "Sports Day", date: "2025-08-20", seats: 0 }  // Full
+];
+
+// Show only valid events
+events.forEach(event => {
+  const eventDate = new Date(event.date);
+  if (eventDate > today && event.seats > 0) {
+    console.log(`✅ ${event.name} on ${event.date} - Seats: ${event.seats}`);
+  } else {
+    console.log(`❌ Skipping ${event.name} (Past or Full)`);
+  }
+});
+
+// Simulate registration with error handling
+function register(event) {
+  try {
+    if (event.seats <= 0) throw new Error("No seats left");
+    event.seats--;
+    console.log(`🎟️ Registered for ${event.name}. Remaining: ${event.seats}`);
+  } catch (err) {
+    console.error(`⚠️ Registration failed: ${err.message}`);
+  }
+}
+
+register(events[0]); // Successful
+register(events[2]); // Will throw error

@@ -1,0 +1,18 @@
+//styles.css
+
+.news-article {
+  column-count: 2;
+  column-gap: 30px;
+  column-rule: 1px solid gray;
+  padding: 20px;
+  background-color: #fdfdfd;
+}
+
+
+//Sample HTML
+
+<div class="news-article">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi.</p>
+  <p>Praesent commodo, mauris id sodales eleifend, nulla nunc egestas augue...</p>
+</div>
+

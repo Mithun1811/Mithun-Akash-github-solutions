@@ -1,0 +1,23 @@
+//styles.css
+
+/* Event card spacing and borders */
+.eventCard {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 15px 0;
+  background-color: #f9f9f9;
+}
+
+/* Highlight selected form field */
+input:focus {
+  outline: 2px solid #007BFF;
+}
+
+/* Visibility comparison */
+.hidden-box {
+  visibility: hidden;  /* Element is invisible but takes space */
+}
+
+.none-box {
+  display: none;       /* Element is removed from layout */
+}

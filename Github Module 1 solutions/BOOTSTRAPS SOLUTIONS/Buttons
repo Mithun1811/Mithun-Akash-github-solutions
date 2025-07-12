@@ -1,0 +1,42 @@
+//Contextual & Outline Buttons
+
+<div class="container mt-4">
+  <button class="btn btn-primary">Primary</button>
+  <button class="btn btn-secondary">Secondary</button>
+  <button class="btn btn-success">Success</button>
+  <button class="btn btn-danger">Danger</button>
+  <button class="btn btn-warning">Warning</button>
+  <button class="btn btn-info">Info</button>
+  <button class="btn btn-light">Light</button>
+  <button class="btn btn-dark">Dark</button>
+  <button class="btn btn-link">Link</button>
+
+  <hr>
+
+  <button class="btn btn-outline-primary">Outline Primary</button>
+  <button class="btn btn-outline-secondary">Outline Secondary</button>
+  <button class="btn btn-outline-success">Outline Success</button>
+</div>
+
+//Button Group & Toggle Buttons
+
+<div class="container mt-4">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-primary">Left</button>
+    <button type="button" class="btn btn-primary">Middle</button>
+    <button type="button" class="btn btn-primary">Right</button>
+  </div>
+
+  <hr>
+
+  <div class="btn-group" role="group" aria-label="Toggle checkbox buttons">
+    <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+    <label class="btn btn-outline-success" for="btncheck1">Option 1</label>
+
+    <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+    <label class="btn btn-outline-success" for="btncheck2">Option 2</label>
+
+    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+    <label class="btn btn-outline-success" for="btncheck3">Option 3</label>
+  </div>
+</div>
