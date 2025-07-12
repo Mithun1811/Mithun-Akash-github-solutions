@@ -1,0 +1,25 @@
+//Assumed Table
+
+Sessions(session_id, event_id, session_start, session_end)
+
+
+//SQL Query: Detect Session Time Conflicts
+
+SELECT 
+  S1.event_id,
+  S1.session_id AS session_1,
+  S1.session_start AS session_1_start,
+  S1.session_end AS session_1_end,
+  S2.session_id AS session_2,
+  S2.session_start AS session_2_start,
+  S2.session_end AS session_2_end
+FROM 
+  Sessions S1
+JOIN 
+  Sessions S2 
+    ON S1.event_id = S2.event_id 
+    AND S1.session_id < S2.session_id  -- avoid duplicate and self comparisons
+    AND S1.session_start < S2.session_end 
+    AND S2.session_start < S1.session_end
+ORDER BY 
+  S1.event_id, S1.session_start;

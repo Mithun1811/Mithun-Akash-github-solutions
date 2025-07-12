@@ -1,0 +1,22 @@
+//Assumed Tables
+
+Users(user_id, name, email, created_at)
+Registrations(registration_id, user_id, event_id)
+
+
+//SQL Query: Unregistered Active Users
+
+SELECT 
+  U.user_id,
+  U.name,
+  U.email,
+  U.created_at
+FROM 
+  Users U
+LEFT JOIN 
+  Registrations R ON U.user_id = R.user_id
+WHERE 
+  U.created_at >= CURRENT_DATE - INTERVAL 30 DAY
+  AND R.registration_id IS NULL
+ORDER BY 
+  U.created_at DESC;

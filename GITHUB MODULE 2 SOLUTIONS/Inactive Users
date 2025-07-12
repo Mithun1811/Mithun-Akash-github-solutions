@@ -1,0 +1,22 @@
+//Assumed Tables
+
+Users(user_id, name, email)
+Registrations(user_id, event_id, registration_date)
+
+
+//Users(user_id, name, email)
+Registrations(user_id, event_id, registration_date)
+
+
+SELECT 
+  U.user_id,
+  U.name,
+  U.email
+FROM 
+  Users U
+WHERE 
+  U.user_id NOT IN (
+    SELECT DISTINCT R.user_id
+    FROM Registrations R
+    WHERE R.registration_date >= CURRENT_DATE - INTERVAL 90 DAY
+  );

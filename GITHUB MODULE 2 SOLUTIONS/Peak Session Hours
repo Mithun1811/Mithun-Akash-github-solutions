@@ -1,0 +1,22 @@
+//Assumed Tables
+
+Events(event_id, name)
+Sessions(session_id, event_id, session_start) -- session_start is a DATETIME or TIMESTAMP
+
+
+// SQL Query: Count Sessions Between 10 AM and 12 PM
+
+SELECT 
+  E.event_id,
+  E.name AS event_name,
+  COUNT(S.session_id) AS sessions_between_10_12
+FROM 
+  Events E
+JOIN 
+  Sessions S ON E.event_id = S.event_id
+WHERE 
+  TIME(S.session_start) BETWEEN '10:00:00' AND '11:59:59'
+GROUP BY 
+  E.event_id, E.name
+ORDER BY 
+  sessions_between_10_12 DESC;

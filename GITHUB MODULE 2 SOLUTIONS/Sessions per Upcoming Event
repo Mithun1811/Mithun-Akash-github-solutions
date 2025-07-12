@@ -1,0 +1,23 @@
+//Assumed Tables
+
+Events(event_id, name, event_date)
+Sessions(session_id, event_id, session_start)
+
+
+//SQL Query: Sessions per Upcoming Event
+
+SELECT 
+  E.event_id,
+  E.name AS event_name,
+  E.event_date,
+  COUNT(S.session_id) AS session_count
+FROM 
+  Events E
+LEFT JOIN 
+  Sessions S ON E.event_id = S.event_id
+WHERE 
+  E.event_date >= CURRENT_DATE
+GROUP BY 
+  E.event_id, E.name, E.event_date
+ORDER BY 
+  E.event_date ASC;

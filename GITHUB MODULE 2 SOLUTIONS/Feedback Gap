@@ -1,0 +1,25 @@
+// Assumed Tables
+
+Events(event_id, name)
+Registrations(registration_id, event_id, user_id)
+Feedback(feedback_id, event_id, user_id)
+
+
+//SQL Query: Events with Registrations but No Feedback
+
+SELECT 
+  E.event_id,
+  E.name AS event_name,
+  COUNT(DISTINCT R.user_id) AS total_registrations
+FROM 
+  Events E
+JOIN 
+  Registrations R ON E.event_id = R.event_id
+LEFT JOIN 
+  Feedback F ON R.event_id = F.event_id AND R.user_id = F.user_id
+WHERE 
+  F.feedback_id IS NULL
+GROUP BY 
+  E.event_id, E.name
+ORDER BY 
+  total_registrations DESC;

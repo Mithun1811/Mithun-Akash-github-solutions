@@ -1,0 +1,19 @@
+//Assumed Tables
+
+Users(user_id, name, city)
+Registrations(user_id, event_id)
+
+//SQL Query: Top 5 Most Active Cities
+
+SELECT 
+  U.city,
+  COUNT(DISTINCT R.user_id) AS unique_user_registrations
+FROM 
+  Users U
+JOIN 
+  Registrations R ON U.user_id = R.user_id
+GROUP BY 
+  U.city
+ORDER BY 
+  unique_user_registrations DESC
+LIMIT 5;

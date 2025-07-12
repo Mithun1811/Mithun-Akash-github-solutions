@@ -1,0 +1,33 @@
+//Assumed Tables
+
+Events(event_id, name)
+Sessions(session_id, event_id)
+
+
+//SQL Query: Event(s) with Maximum Sessions
+
+-- Step 1: Find session count per event
+WITH SessionCounts AS (
+  SELECT 
+    E.event_id,
+    E.name AS event_name,
+    COUNT(S.session_id) AS session_count
+  FROM 
+    Events E
+  JOIN 
+    Sessions S ON E.event_id = S.event_id
+  GROUP BY 
+    E.event_id, E.name
+)
+
+-- Step 2: Select the event(s) with the highest count
+SELECT 
+  event_id,
+  event_name,
+  session_count
+FROM 
+  SessionCounts
+WHERE 
+  session_count = (
+    SELECT MAX(session_count) FROM SessionCounts
+);

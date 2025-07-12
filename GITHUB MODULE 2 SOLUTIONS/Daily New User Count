@@ -1,0 +1,20 @@
+// Assumed Table
+
+Users(user_id, name, created_at)  
+-- `created_at` is a DATETIME or DATE column storing registration time
+
+
+//SQL Query: Daily New Users (Last 7 Days)
+
+SELECT 
+  DATE(created_at) AS registration_date,
+  COUNT(*) AS new_user_count
+FROM 
+  Users
+WHERE 
+  created_at >= CURRENT_DATE - INTERVAL 7 DAY
+GROUP BY 
+  DATE(created_at)
+ORDER BY 
+  registration_date ASC;
+

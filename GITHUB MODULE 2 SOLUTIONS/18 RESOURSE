@@ -1,0 +1,19 @@
+//Assumed Tables
+
+Events(event_id, name)
+Resources(resource_id, event_id)
+
+
+//SQL Query: Events Without Resources
+
+SELECT 
+  E.event_id,
+  E.name AS event_name
+FROM 
+  Events E
+LEFT JOIN 
+  Resources R ON E.event_id = R.event_id
+WHERE 
+  R.resource_id IS NULL
+ORDER BY 
+  E.name;

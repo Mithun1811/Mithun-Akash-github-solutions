@@ -1,0 +1,19 @@
+//Assumed Table
+
+Registrations(registration_id, user_id, event_id, registered_at) 
+-- registered_at is a DATETIME or DATE field
+
+
+//SQL Query: Monthly Registration Trends (Last 12 Months)
+
+SELECT 
+  DATE_FORMAT(registered_at, '%Y-%m') AS month,
+  COUNT(*) AS registration_count
+FROM 
+  Registrations
+WHERE 
+  registered_at >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH)
+GROUP BY 
+  DATE_FORMAT(registered_at, '%Y-%m')
+ORDER BY 
+  month ASC;

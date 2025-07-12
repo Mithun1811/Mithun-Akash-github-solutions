@@ -1,0 +1,26 @@
+// Assumed Tables
+
+Events(event_id, name, status)             -- status = 'completed'
+Registrations(registration_id, event_id)
+Feedback(feedback_id, event_id, rating)
+
+
+//SQL Query: Completed Events with Feedback Summary
+
+SELECT 
+  E.event_id,
+  E.name AS event_name,
+  COUNT(DISTINCT R.registration_id) AS total_registrations,
+  ROUND(AVG(F.rating), 2) AS average_rating
+FROM 
+  Events E
+LEFT JOIN 
+  Registrations R ON E.event_id = R.event_id
+LEFT JOIN 
+  Feedback F ON E.event_id = F.event_id
+WHERE 
+  E.status = 'completed'
+GROUP BY 
+  E.event_id, E.name
+ORDER BY 
+  average_rating DESC NULLS LAST;

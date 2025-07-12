@@ -1,0 +1,21 @@
+//Assumed Tables
+
+Events(event_id, name)
+Registrations(registration_id, event_id, user_id)
+
+
+//SQL Query: Top 3 Most Registered Events
+
+SELECT 
+  E.event_id,
+  E.name AS event_name,
+  COUNT(R.user_id) AS total_registrations
+FROM 
+  Events E
+JOIN 
+  Registrations R ON E.event_id = R.event_id
+GROUP BY 
+  E.event_id, E.name
+ORDER BY 
+  total_registrations DESC
+LIMIT 3;

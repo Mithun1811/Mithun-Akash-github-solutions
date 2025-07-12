@@ -1,0 +1,21 @@
+//Assumed Tables
+
+Events(event_id, name, city)
+Feedback(feedback_id, event_id, rating) -- rating is numeric (e.g., 1 to 5)
+
+
+//SQL Query: Average Rating per City
+
+SELECT 
+  E.city,
+  ROUND(AVG(F.rating), 2) AS average_rating
+FROM 
+  Events E
+JOIN 
+  Feedback F ON E.event_id = F.event_id
+GROUP BY 
+  E.city
+ORDER BY 
+  average_rating DESC;
+
+ 

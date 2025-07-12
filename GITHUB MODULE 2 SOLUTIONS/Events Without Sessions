@@ -1,0 +1,19 @@
+//Assumed Tables
+
+Events(event_id, name, status)
+Sessions(session_id, event_id, session_start, session_end)
+
+
+//SQL Query: Events Without Sessions
+
+SELECT 
+  E.event_id,
+  E.name AS event_name
+FROM 
+  Events E
+LEFT JOIN 
+  Sessions S ON E.event_id = S.event_id
+WHERE 
+  S.session_id IS NULL
+ORDER BY 
+  E.name;

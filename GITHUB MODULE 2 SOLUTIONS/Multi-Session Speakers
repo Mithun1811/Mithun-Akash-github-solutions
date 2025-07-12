@@ -1,0 +1,22 @@
+//Assumed Table
+
+Sessions(session_id, event_id, speaker_id)
+Speakers(speaker_id, name)
+
+
+//SQL Query: Multi-Session Speakers
+
+SELECT 
+  SP.speaker_id,
+  SP.name AS speaker_name,
+  COUNT(S.session_id) AS total_sessions
+FROM 
+  Speakers SP
+JOIN 
+  Sessions S ON SP.speaker_id = S.speaker_id
+GROUP BY 
+  SP.speaker_id, SP.name
+HAVING 
+  COUNT(S.session_id) > 1
+ORDER BY 
+  total_sessions DESC;

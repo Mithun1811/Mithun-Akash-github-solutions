@@ -1,0 +1,23 @@
+//Assumed Tables
+
+Events(event_id, name, city, event_date)
+Feedback(feedback_id, event_id, rating) -- rating is numeric (e.g., 1 to 5)
+
+
+//SQL Query: Top Rated Events with ≥10 Feedbacks
+
+SELECT 
+  E.event_id,
+  E.name AS event_name,
+  COUNT(F.feedback_id) AS total_feedbacks,
+  AVG(F.rating) AS average_rating
+FROM 
+  Events E
+JOIN 
+  Feedback F ON E.event_id = F.event_id
+GROUP BY 
+  E.event_id, E.name
+HAVING 
+  COUNT(F.feedback_id) >= 10
+ORDER BY 
+  average_rating DESC;

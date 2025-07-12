@@ -1,0 +1,21 @@
+//Assumed Tables
+
+Users(user_id, name, email)
+Feedback(feedback_id, user_id, event_id, rating)
+
+
+//SQL Query: Top Feedback Providers
+
+SELECT 
+  U.user_id,
+  U.name AS user_name,
+  COUNT(F.feedback_id) AS feedback_count
+FROM 
+  Users U
+JOIN 
+  Feedback F ON U.user_id = F.user_id
+GROUP BY 
+  U.user_id, U.name
+ORDER BY 
+  feedback_count DESC
+LIMIT 5;

@@ -1,0 +1,24 @@
+//Assumed Tables
+
+ Users(user_id, name, email)
+Registrations(registration_id, user_id, event_id)
+Feedback(feedback_id, user_id, event_id)
+
+
+//SQL Query: User Engagement Index
+
+SELECT 
+  U.user_id,
+  U.name AS user_name,
+  COUNT(DISTINCT R.event_id) AS events_attended,
+  COUNT(DISTINCT F.feedback_id) AS feedbacks_submitted
+FROM 
+  Users U
+LEFT JOIN 
+  Registrations R ON U.user_id = R.user_id
+LEFT JOIN 
+  Feedback F ON U.user_id = F.user_id
+GROUP BY 
+  U.user_id, U.name
+ORDER BY 
+  events_attended DESC, feedbacks_submitted DESC;
